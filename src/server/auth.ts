@@ -61,10 +61,10 @@ export const authOptions: NextAuthOptions = {
     }),
   ],
   theme: {
-    colorScheme: "auto", // "auto" | "dark" | "light"
-    brandColor: "", // Hex color code
-    logo: "", // Absolute URL to image
-    buttonText: "" // Hex color code
+    colorScheme: "dark", // "auto" | "dark" | "light"
+    brandColor: "#FFFFFF", // Hex color code
+    logo: "/bgpanda.png", // Absolute URL to image
+    buttonText: "#000000" // Hex color code
   }
 };
 
