@@ -139,7 +139,7 @@ interface NavbarProps {
 
     return (
      <>
-       <div className="fixed z-50 w-full bg-[#282828] shadow-sm "> 
+       <div className="fixed z-50 w-full bg-[#282828] shadow-sm border-b border-neutral-700"> 
          <div className="mx-auto flex max-w-full px-6 lg:px-16 xl:grid xl:grid-cols-12">
            <div className="flex flex-shrink-0 items-center lg:static xl:col-span-2">
              <Link href="/#" aria-label="Home">
