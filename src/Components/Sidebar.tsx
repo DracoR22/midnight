@@ -77,7 +77,7 @@ interface SidebarProps {
         current: router.asPath === `/${String(userId)}/ProfilePlaylists`,
       },
       {
-        name: "Following",
+        name: "Subscriptions",
         path: userId ? `/${String(userId)}/ProfileFollowing` : "sign-in",
         icon: (className) => <UserCheck className={className} />,
         current: router.asPath === `/${String(userId)}/ProfileFollowing`,
@@ -108,12 +108,6 @@ interface SidebarProps {
         icon: (className) => <Settings className={className} />,
         current: router.pathname === `/Settings`,
       },
-      {
-        name: "Feedback",
-        path: `mailto:vidchill@vidchill.com`,
-        icon: (className) => <MessagePlusSquare className={className} />,
-        current: router.pathname === `/Feedback`,
-      },
     ];
     const SignedOutMobileNavigation: NavigationItem[] = [
       {
@@ -121,13 +115,6 @@ interface SidebarProps {
         path: `/Blog/Help`,
         icon: (className) => <HelpCircle className={className} />,
         current: router.pathname === `/Blog/Help`,
-      },
-  
-      {
-        name: "Feedback",
-        path: `mailto:vidchill@vidchill.com`,
-        icon: (className) => <MessagePlusSquare className={className} />,
-        current: router.pathname === `/Feedback`,
       },
     ];
   

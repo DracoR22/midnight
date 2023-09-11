@@ -7,9 +7,13 @@ import { ErrorMessage, LoadingMessage } from "~/Components/ErrorMessage";
 import Layout from "~/Components/Layout";
 import { api } from "~/utils/api";
 import ReactPlayer from "react-player";
-import { UserImage, UserName, VideoInfo, VideoTitle } from "~/Components/VideoComponent";
+import { SmallSingleColumnVideo, UserImage, UserName, VideoInfo, VideoTitle } from "~/Components/VideoComponent";
 import Link from "next/link";
 import FollowButton from "~/Components/Buttons/FollowButton";
+import LikeDislikeButton from "~/Components/Buttons/LikeDislikeButton";
+import Description from "~/Components/Description";
+import CommentSection from "~/Components/CommentSection";
+import SaveButton from "~/Components/Buttons/SaveButton";
 
 const VideoPage: NextPage = () => {
     const router = useRouter();
@@ -117,7 +121,7 @@ const VideoPage: NextPage = () => {
                         />
                       </div>
                       <div className="flex-inline flex items-end justify-start  gap-4 self-start  ">
-                      {/* <LikeDislikeButton
+                      <LikeDislikeButton
                           EngagementData={{
                             id: video.id,
                             likes: video.likes,
@@ -128,7 +132,7 @@ const VideoPage: NextPage = () => {
                             hasLiked: viewer.hasLiked,
                           }}
                         />
-                        <SaveButton videoId={video.id} /> */}
+                        <SaveButton videoId={video.id} /> 
                       </div>
                     </div>
                     <div className="flex flex-row  place-content-between gap-x-4 ">
@@ -152,11 +156,53 @@ const VideoPage: NextPage = () => {
                         }}
                       />
                     </div>
+                    <Description
+                      text={video.description || ""}
+                      length={200}
+                      border={true}
+                    />
                   </div>
                 </div>
+                <CommentSection
+                  videoId={video.id}
+                  comments={videoData.comments.map(({ user, comment }) => ({
+                    comment: {
+                      id: comment.id,
+                      message: comment.message,
+                      createdAt: comment.createdAt,
+                    },
+                    user: {
+                      id: user.id,
+                      name: user.name,
+                      image: user.image,
+                      handle: user.handle,
+                    },
+                  }))}
+                  refetch={refetchVideoData}
+                />
               </div>
             </>
             )}
+             <div className="px-4 lg:w-2/5 lg:px-0   ">
+            {!sidebarVideos ? (
+              <DataError />
+            ) : (
+              <SmallSingleColumnVideo
+                refetch={refetchSidebarVideos}
+                videos={sidebarVideos.videos.map((video) => ({
+                  id: video?.id || "",
+                  title: video?.title || "",
+                  thumbnailUrl: video?.thumbnailUrl || "",
+                  createdAt: video?.createdAt || new Date(),
+                  views: video?.views || 0,
+                }))}
+                users={sidebarVideos.users.map((user) => ({
+                  name: user?.name || "",
+                  image: user?.image || "",
+                }))}
+              />
+            )}
+          </div>
              </main>
           </Layout>
         </>

@@ -96,12 +96,6 @@ interface NavbarProps {
           lineAbove: true,
         },
         {
-          icon: (className) => <MessagePlusSquare className={className} />,
-          name: "Feedback",
-          path: `mailto:vidchill@vidchill.com`,
-          lineAbove: false,
-        },
-        {
           icon: (className) => <File className={className} />,
           name: "Terms of Service",
           path: "/Blog/TOS",
