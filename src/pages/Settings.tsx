@@ -306,7 +306,7 @@ export function CropImageModal({
     };
 
     const formData = new FormData();
-    formData.append("upload_preset", "user_uploads");
+    formData.append("upload_preset", "dchg8xye");
     formData.append("file", croppedDataUrl);
 
     fetch(
