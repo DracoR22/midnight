@@ -352,7 +352,7 @@ export function CropImageModal({
               onChange={onFileChange}
             />
             <Image
-              className="h-24 w-24 rounded-full sm:h-32 sm:w-32"
+              className="h-24 w-24 rounded-full sm:h-32 sm:w-32 cursor-pointer"
               width="2000"
               height="2000"
               src={channel?.image || "/profile.jpg"}
@@ -371,7 +371,7 @@ export function CropImageModal({
               onChange={onFileChange}
             />
             <Image
-              className="h-32 w-full object-cover lg:h-64"
+              className="h-32 w-full object-cover lg:h-64 cursor-pointer"
               src={channel.backgroundImage || "/background.jpg"}
               width={2000}
               height={2000}
